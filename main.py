@@ -2,17 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
-import chromadb
-from chromadb.utils import embedding_functions
-import json
 import os
 import requests
 
 # --- CONFIG ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(BASE_DIR, 'data/portfolio_context.txt')
-EMBED_MODEL = "all-MiniLM-L6-v2"
-
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 if not GROQ_API_KEY:
@@ -23,41 +18,16 @@ LLM_MODEL = "llama-3.1-8b-instant"
 def load_portfolio_data():
     with open(DATA_PATH, 'r') as f:
         context = f.read()
-    return [{"id": "portfolio_context", "text": context}]
-
-# --- VECTOR DB ---
-def setup_chromadb(docs):
-    client = chromadb.Client()
-    embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=EMBED_MODEL)
-
-    collection = client.get_or_create_collection(
-        name="portfolio",
-        embedding_function=embed_fn
-    )
-
-    # Avoid duplicate inserts
-    existing_ids = set()
-    try:
-        existing_ids = set(collection.get()["ids"])
-    except:
-        pass
-
-    for doc in docs:
-        if doc["id"] not in existing_ids:
-            collection.add(documents=[doc["text"]], ids=[doc["id"]])
-
-    return collection
-
+    return context
 
 # --- LLM ---
 def ask_llm(context: str, question: str, history: list):
-
     system_prompt = """
 You are an AI assistant for Hanan Nasir, a Machine Learning and Backend Developer.
 
 Rules:
  - Always answer in a natural, conversational, and honest tone (not like ChatGPT or markdown notes).
- - Always refer to Hanan in the third person (use "she", "her", or "Hanan"), never "I" or "my".
+ - Always refer to Hanan in the third person (use \"she\", \"her\", or \"Hanan\"), never \"I\" or \"my\".
  - Never mention or invent projects that Hanan did not build. Only discuss real projects: Credit Risk Model, Fraud Detection, RAG Chatbot, Ethiopia Financial Inclusion, Empower Library API, Med Tracker, and KAIM projects.
  - When asked about projects, use a human style, but always in third person. Example:
      Hanan has worked on several machine learning and backend projects, mostly focused on real-world problems. One of her strongest projects is a credit risk modeling system. It's an end-to-end ML pipeline where she worked on data preprocessing, feature engineering, and model training. She also implemented temporal data splitting to avoid data leakage, which is important in financial systems. What makes it stronger is that she didn’t stop at the model. She added explainability using SHAP, deployed it using FastAPI, and built a Streamlit dashboard so it can actually be used by non-technical users. She has also worked on fraud detection systems and other data science projects during her training, focusing on solving practical problems rather than just theory. She prefers learning by building real projects rather than just studying theory, which is why most of her experience comes from hands-on work. If you want, the assistant can walk you through one project in detail.
@@ -70,36 +40,26 @@ Rules:
  - Never use markdown formatting, stars, or bullet points for project lists. Always sound like a real assistant, not a bot.
 """
     messages = [{"role": "system", "content": system_prompt + "\nContext:\n" + context}]
-
-    # Add history
     for h in history[-4:]:
         messages.append(h)
-
     messages.append({"role": "user", "content": question})
-
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
     }
-
     data = {
         "model": LLM_MODEL,
         "messages": messages,
         "temperature": 0.6,
         "max_tokens": 400
     }
-
     resp = requests.post(GROQ_API_URL, headers=headers, json=data)
-
     if resp.ok:
         return resp.json()["choices"][0]["message"]["content"]
-
     return "Something went wrong 😅"
-
 
 # --- FASTAPI ---
 app = FastAPI()
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -107,15 +67,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-docs = load_portfolio_data()
-collection = setup_chromadb(docs)
-
+context = load_portfolio_data()
 
 class QueryRequest(BaseModel):
     question: str
     history: List[dict] = []
-
 
 @app.post("/rag-query")
 def rag_query(req: QueryRequest):
@@ -163,13 +119,9 @@ def rag_query(req: QueryRequest):
     # Smart rules for ending
     if any(word in q for word in ["thank you", "thanks", "bye", "goodbye"]):
         return {"answer": "Nice talking to you. See you around 👋", "type": "ending"}
-    # Retrieval
-    results = collection.query(query_texts=[req.question], n_results=4)
-    context_chunks = results["documents"][0]
-    context = "\n\n".join(context_chunks)
+    # Retrieval (just use context)
     answer = ask_llm(context, req.question, req.history)
-    return {"answer": answer, "context": context_chunks}
-
+    return {"answer": answer, "context": [context]}
 
 @app.get("/")
 def root():
