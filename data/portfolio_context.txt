@@ -1,0 +1,38 @@
+Name: Hanan Nasir
+
+Role: Machine Learning & Backend Developer
+
+Projects:
+
+1. Credit Risk Model
+- Built an end-to-end ML system for credit risk prediction
+- Used temporal data splitting to avoid leakage
+- Implemented SHAP for explainability
+- Deployed using FastAPI and Streamlit
+- Integrated MLflow for experiment tracking
+- Result: Improved approval rate and reduced default risk
+
+2. Fraud Detection
+- Built classification model for detecting fraudulent transactions
+- Focused on class imbalance handling
+- Used ensemble models for best accuracy
+- Deployed as a REST API
+
+3. Ethiopia Financial Inclusion Forecast
+- Built a forecasting system for digital financial inclusion
+- Used time series and event impact analysis
+- Delivered results in an interactive dashboard
+
+4. Empower Library API
+- Designed a RESTful API for library management
+- Used FastAPI, PostgreSQL, JWT authentication
+- Automated API docs with Swagger
+
+Contact:
+- Email: your_email@gmail.com
+- Telegram: @Nabii24
+- GitHub: https://github.com/hann2004
+- LinkedIn: https://www.linkedin.com/in/your-link
+
+CV:
+- https://yourdomain.com/Hanan_Nasir_CV.pdf

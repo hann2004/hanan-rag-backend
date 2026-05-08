@@ -1,0 +1,134 @@
+{
+  "about": {
+  "fullName": "Hanan Nasir",
+  "nickname": "Nabi",
+  "summary": "I’m Hanan, but you can call me Nabi 😊 I’m a machine learning and backend developer. I studied software engineering at Arba Minch University and completed the KAIM program where I built multiple real-world ML and data science projects. I enjoy building intelligent systems that solve real problems."
+},
+  "projects": [
+    {
+      "title": "Sales Data Analysis System",
+      "description": "Exploratory data analysis on sales data with visual insights and business recommendations.",
+      "longDescription": "Comprehensive analysis of sales patterns, customer behavior, and revenue trends using Python data science stack. Generates actionable insights through statistical analysis and visualization.",
+      "technologies": ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter", "Data Analysis"],
+      "githubUrl": "https://github.com/hann2004/solar-challenge-week0.git",
+      "category": "datascience",
+      "highlights": ["Business insight generation", "Interactive visualizations", "Statistical analysis"]
+    },
+    {
+      "title": "Fintech Reviews Analysis",
+      "description": "Analysis of financial technology reviews using NLP techniques to extract customer insights.",
+      "longDescription": "Processed and analyzed fintech reviews to identify trends, sentiment patterns, and key customer concerns. Includes text preprocessing, sentiment analysis, and topic modeling.",
+      "technologies": ["Python", "Sentiment Analysis", "TextBlob", "WordCloud", "Pandas", "NLP"],
+      "githubUrl": "https://github.com/hann2004/Kaim-week2-fintech-reviews.git",
+      "category": "datascience"
+    },
+    {
+      "title": "Ethiopia Financial Inclusion — Event Impacts, Forecasts, and Dashboard",
+      "description": "Reproducible workflow to enrich data, analyze event impacts, generate 2025–2027 forecasts, and deliver a Streamlit dashboard.",
+      "longDescription": "End-to-end pipeline for data enrichment, EDA, event impact modeling, and forecasting, culminating in an interactive Streamlit dashboard with downloads and scenario analysis.",
+      "technologies": ["Python", "Pandas", "Streamlit", "Forecasting", "EDA", "Data Visualization"],
+      "githubUrl": "https://github.com/hann2004/ethiopia-fi-forecast.git",
+      "category": "datascience"
+    },
+    {
+      "title": "News Sentiment Analysis",
+      "description": "Natural Language Processing project analyzing sentiment in news articles using text classification.",
+      "longDescription": "Implemented sentiment analysis pipeline with text preprocessing, feature extraction, and machine learning classification. Evaluates multiple models for sentiment prediction.",
+      "technologies": ["Python", "Scikit-learn", "NLTK", "Pandas", "Text Processing", "Model Evaluation"],
+      "githubUrl": "https://github.com/hann2004/kaim-week1-news-sentiment.git",
+      "category": "ml"
+    },
+    {
+      "title": "Insurance Risk Analytics",
+      "description": "Risk analysis project for insurance data focusing on predictive modeling and assessment.",
+      "longDescription": "Applied statistical methods and predictive modeling to assess insurance risk factors and probabilities. Includes data exploration, feature engineering, and model development.",
+      "technologies": ["Python", "Predictive Modeling", "Scikit-learn", "Risk Analytics", "Statistics"],
+      "githubUrl": "https://github.com/hann2004/kaim-week3-insurance-risk-analytics-acis.git",
+      "category": "ml"
+    },
+    {
+      "title": "Credit Risk Modeling System",
+      "description": "Machine learning model for credit risk assessment with evaluation metrics.",
+      "longDescription": "Built and evaluated machine learning models for credit risk prediction using real financial data. Includes data preprocessing, feature engineering, and model comparison.",
+      "technologies": ["Python", "Machine Learning", "Scikit-learn", "Pandas", "Matplotlib", "Model Evaluation"],
+      "githubUrl": "https://github.com/hann2004/credit-risk-model.git",
+      "category": "ml",
+      "highlights": ["Used in Bati Bank buy-now-pay-later pilot", "Model comparison and interpretation"]
+    },
+    {
+      "title": "Fraud Detection",
+      "description": "E-commerce and credit card fraud detection. Data cleaning, EDA, feature engineering, scaling/encoding, and imbalance handling. Model building, training, and evaluation with stratified CV; baseline Logistic Regression vs. Ensemble (XGBoost/RandomForest); metrics saved and models persisted.",
+      "longDescription": "Repository for e-commerce and credit card fraud detection. Includes data cleaning, exploratory data analysis, feature engineering, scaling/encoding, and handling class imbalance. Models are built, trained, and evaluated using stratified cross-validation. Baseline Logistic Regression is compared with ensemble models (XGBoost, RandomForest). Metrics are saved and models are persisted for deployment.",
+      "technologies": ["Python", "XGBoost", "RandomForest", "Logistic Regression", "EDA", "Feature Engineering"],
+      "githubUrl": "https://github.com/hann2004/fraud-detection",
+      "category": "ml",
+      "highlights": ["Stratified cross-validation", "Ensemble model comparison", "Production-ready pipeline"]
+    },
+    {
+      "title": "Brent Oil Event Analysis",
+      "description": "Full-stack data science project for Brent crude oil prices, combining Bayesian change point detection, event impact analysis, and a modern dashboard for stakeholders.",
+      "longDescription": "A comprehensive project analyzing Brent crude oil prices. Combines Bayesian change point detection, event impact analysis, and delivers results in a modern dashboard for stakeholders.",
+      "technologies": ["Python", "Bayesian Analysis", "Dashboard"],
+      "githubUrl": "https://github.com/hann2004/brent-oil-event-analysis",
+      "category": "datascience",
+      "highlights": ["Event impact analysis", "Bayesian change point detection", "Stakeholder dashboard"]
+    },
+    {
+      "title": "Bank Management System",
+      "description": "A system for bank management.",
+      "longDescription": "A project for managing bank operations and data. (See repo for details)",
+      "technologies": [],
+      "githubUrl": "https://github.com/hann2004/bank_Mangment",
+      "category": "backend"
+    },
+    {
+      "title": "Empower Library API",
+      "description": "FastAPI RESTful API with JWT authentication, PostgreSQL, and automated Swagger documentation.",
+      "longDescription": "Complete library management system with user authentication, book CRUD operations, and comprehensive API documentation. Features include token-based authentication, database modeling with SQLAlchemy, and automated API documentation generation.",
+      "technologies": ["FastAPI", "PostgreSQL", "JWT", "SQLAlchemy", "Pydantic", "Python"],
+      "githubUrl": "https://github.com/hann2004/empower_library_api.git",
+      "category": "backend"
+    }
+  ],
+  "skills": [
+    {"name": "Python", "description": "Primary programming language"},
+    {"name": "FastAPI", "description": "Modern web framework"},
+    {"name": "PostgreSQL", "description": "Relational database"},
+    {"name": "Next.js", "description": "React framework"},
+    {"name": "TypeScript", "description": "Typed JavaScript"},
+    {"name": "Tailwind", "description": "Utility-first CSS"},
+    {"name": "Pandas", "description": "Data manipulation"},
+    {"name": "Scikit-learn", "description": "Machine learning"},
+    {"name": "NumPy", "description": "Numerical computing"},
+    {"name": "Jupyter", "description": "Notebook environment"},
+    {"name": "Git", "description": "Version control"}
+  ],
+  "certifications": [
+    {
+      "title": "KAIM Graduation Certificate",
+      "issuer": "KAIM",
+      "date": "March 2026",
+      "skills": [
+        "See full skill list at Course Details link below",
+        "Data Science",
+        "Machine Learning",
+        "Python",
+        "Project Management",
+        "Teamwork",
+        "Critical Thinking"
+      ],
+      "notes": "This was an intense 3-month program and my biggest achievement. The certificate covers a wide range of advanced skills. See the Course Details link for the complete skill set.",
+      "courseDetailsUrl": "https://drive.google.com/file/d/1sEczj63QUGHMED-mlerOEDUNzf9cRPAg/view?usp=sharing"
+    },
+    {"title": "Artificial Intelligence Fundamentals", "issuer": "Udacity", "date": "December 17, 2024", "skills": ["AI Basics", "Machine Learning", "Neural Networks"]},
+    {"title": "Programming Fundamentals", "issuer": "Udacity", "date": "December 17, 2024", "skills": ["Python", "Data Structures", "Algorithms"]},
+    {"title": "Responsive Web Design", "issuer": "freeCodeCamp", "date": "October 30, 2024", "skills": ["HTML/CSS", "Responsive Design", "Web Accessibility"]},
+    {"title": "Virtual Assistant Skills", "issuer": "ALX / AL Group", "date": "October 8, 2024", "skills": ["Digital Tools", "Communication", "Project Management"]}
+  ],
+  "journey": [
+    {"period": "2023", "title": "Web Design Foundations", "description": "Completed virtual assistant & responsive web design certifications.", "projects": ["Portfolio Website", "Responsive Designs", "UI/UX Principles"]},
+    {"period": "2024/2025", "title": "Backend Developer", "description": "Built REST APIs with FastAPI, PostgreSQL. Focused on system architecture.", "projects": ["FastAPI Projects", "Database Design", "API Development"]},
+    {"period": "2025", "title": "Machine Learning Engineer", "description": "KAIM training with 5-6 data analysis & ML projects. Building intelligent systems.", "projects": ["FastAPI Library", "ML Models", "Data Analysis"]},
+    {"period": "Future", "title": "Full Stack AI Engineer", "description": "Combining design, backend, and ML to build complete AI-powered applications.", "projects": ["AI Applications", "Full Stack Systems", "Scalable Solutions"]}
+  ]
+}
