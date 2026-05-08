@@ -10,7 +10,7 @@ import requests
 
 # --- CONFIG ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(BASE_DIR, '../data/portfolio_context.txt')
+DATA_PATH = os.path.join(BASE_DIR, 'data/portfolio_context.txt')
 EMBED_MODEL = "all-MiniLM-L6-v2"
 
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
