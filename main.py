@@ -13,7 +13,7 @@ GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY is not set. Check your environment variables.")
-LLM_MODEL = "llama-3.1-8b-instant"
+ LLM_MODEL = "openai/gpt-oss-20b"
  
 # --- LOAD DATA ---
 def load_portfolio_data():
@@ -61,11 +61,13 @@ Rules:
         "model": LLM_MODEL,
         "messages": messages,
         "temperature": 0.6,
-        "max_tokens": 400
+        "max_tokens": 800,
+        "reasoning_effort": "low"
     }
-    resp = requests.post(GROQ_API_URL, headers=headers, json=data)
+    resp = requests.post(GROQ_API_URL, headers=headers, json=data, timeout=30)
     if resp.ok:
         return resp.json()["choices"][0]["message"]["content"]
+    print("GROQ ERROR:", resp.status_code, resp.text)
     return "Something went wrong 😅"
  
 # --- FASTAPI ---
