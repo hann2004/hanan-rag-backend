@@ -13,7 +13,7 @@ GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY is not set. Check your environment variables.")
- LLM_MODEL = "openai/gpt-oss-20b"
+LLM_MODEL = "openai/gpt-oss-20b"
  
 # --- LOAD DATA ---
 def load_portfolio_data():
